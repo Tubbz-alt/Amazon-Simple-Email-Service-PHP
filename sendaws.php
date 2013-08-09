@@ -15,7 +15,7 @@
 *
 *   SES.php Usage
 */
-if (!class_exists('SES')) require_once 'SES.php';
+if (!class_exists('SES')) require_once '/var/nginx/wt/http/www/modules/aws-ses/SES.php';
 
 // AWS access info
 if (!defined('awsAccessKey')) define('awsAccessKey', 'AKIAJSHFFKH5E4ZS2FCQ');
@@ -48,7 +48,6 @@ $ses = new SES(awsAccessKey, awsSecretKey);
 // Get your Send Statistics
 #echo "SES::getSendStatistics(): ".print_r($ses->getSendStatistics(), 1)."\n";
 
-
 function AWSemail($MailTo, $Subject, $msg)
 {
     global $ses;
@@ -66,7 +65,7 @@ function AWSemail($MailTo, $Subject, $msg)
             ),
             'Body'=> array(
                 'Html'=>array(
-                    "Data" => $msg,
+                    "Data" => nl2br($msg),
                     'Charset'=>'us-ascii'//Not required if is US-ASCII
                 )
             )

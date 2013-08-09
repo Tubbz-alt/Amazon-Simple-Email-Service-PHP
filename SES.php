@@ -40,7 +40,7 @@
 
 
 //  Comment the following line if you don't need to use a root certificate file
-define('CERTIFICATE_FILE_PATH', $_SERVER['DOCUMENT_ROOT'].'cacert.pem');
+define('CERTIFICATE_FILE_PATH', '/var/nginx/wt/http/www/modules/aws-ses/cacert.pem');
 
 class SES {
 
