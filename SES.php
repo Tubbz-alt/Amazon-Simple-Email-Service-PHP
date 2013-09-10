@@ -220,7 +220,7 @@ final class SESRequest {
         // Basic setup
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_USERAGENT, 'SES/php');
-        curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 1);
+        curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 2);
         curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, 1);
         if (defined('CERTIFICATE_FILE_PATH')) curl_setopt($curl, CURLOPT_CAINFO, CERTIFICATE_FILE_PATH);
 
