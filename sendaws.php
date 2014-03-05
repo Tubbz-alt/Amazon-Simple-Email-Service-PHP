@@ -31,7 +31,7 @@ if (awsAccessKey == 'change-this' || awsSecretKey == 'change-this')
     "define('awsAccessKey', 'change-me');\ndefine('awsSecretKey', 'change-me');\n\n");
 
 // Instantiate the class
-$ses = new SES(awsAccessKey, awsSecretKey);
+//$ses = new SES(awsAccessKey, awsSecretKey);
 
 // List your Verified Email Addresses
 #echo "SES::listVerifiedAddresses(): ".print_r($ses->listVerifiedAddresses(), 1)."\n";
@@ -50,8 +50,9 @@ $ses = new SES(awsAccessKey, awsSecretKey);
 
 function AWSemail($MailTo, $Subject, $msg)
 {
-    global $ses;
+//    global $ses;
 
+    $ses = new SES(awsAccessKey, awsSecretKey);
     $email = array(
         'Destination' => array(
             'ToAddresses'=> array($MailTo),//array('vince@blackbirdinteractive.com','vincej@gmail.com'),

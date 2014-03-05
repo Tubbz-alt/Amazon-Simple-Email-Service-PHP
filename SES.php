@@ -149,7 +149,7 @@ class SES {
             $formatted_email['Message.Body.Text.Charset'] = $email['Message']['Body']['Text']['Charset'];
         $rest = new SESRequest('POST', 'SendEmail', $formatted_email);
         $rest = $rest->getResponse();
-        print_r($rest);
+        //print_r($rest);
         if ($rest->error === false && $rest->code !== 200) $rest->error = array('code' => $rest->code, 'message' => 'Unexpected HTTP status');
         if ($rest->error !== false) {
             trigger_error(sprintf("SES::sendEmail(): [%s] %s", $rest->error['code'], $rest->error['message']), E_USER_WARNING);
